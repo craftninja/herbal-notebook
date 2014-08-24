@@ -22,4 +22,15 @@ feature 'User Auth' do
     expect(page).to have_content 'You have successfully logged out'
   end
 
+  scenario 'User can login' do
+    register(user)
+    click_on 'Logout'
+    click_on 'Login'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_on 'Login'
+    expect(page).to have_content('Welcome, User!')
+    expect(page).to have_content('Your login was successful!')
+  end
+
 end
