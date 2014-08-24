@@ -13,8 +13,10 @@
   <% end %>
 </nav>
 
-<% if flash %>
-    <%= flash[:notice] %>
+<% if flash.any? %>
+    <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+    <% end %>
 <% end %>
 
 <%= yield %>

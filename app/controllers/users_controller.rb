@@ -10,6 +10,8 @@ class UsersController < ApplicationController
       session[:current_user_id] = @user.id
       flash[:notice] = 'Your registration was successful!'
       redirect_to user_path(current_user)
+    else
+      render :new
     end
   end
 

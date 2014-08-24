@@ -33,4 +33,18 @@ feature 'User Auth' do
     expect(page).to have_content('Your login was successful!')
   end
 
+  scenario 'User sees errors on registration and login' do
+    user.username = ''
+    register(user)
+    expect(page).to have_content('Username can\'t be blank')
+    user.username = 'User'
+    register(user)
+    click_on 'Logout'
+    click_on 'Login'
+    fill_in 'Email', with: 'notuser@example.com'
+    fill_in 'Password', with: user.password
+    click_on 'Login'
+    expect(page).to have_content('Email and/or Password is incorrect.')
+  end
+
 end

@@ -16,6 +16,10 @@ class SessionsController < ApplicationController
       session[:current_user_id] = @user.id
       flash[:notice] = 'Your login was successful!'
       redirect_to user_path(current_user)
+    else
+      @user = User.new
+      flash.now[:error] = 'Email and/or Password is incorrect.'
+      render :new
     end
   end
 
