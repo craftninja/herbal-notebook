@@ -38,6 +38,7 @@ feature 'User Auth' do
 
   scenario 'User sees errors on login' do
     register(user)
+    click_on 'Logout'
     user.email = 'notuser@example.com'
     login(user)
     expect(page).to have_content('Email and/or Password is incorrect.')

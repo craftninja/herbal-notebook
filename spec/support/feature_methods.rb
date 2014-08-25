@@ -5,7 +5,7 @@ def register(user)
   fill_in 'Email', with: user.email
   fill_in 'Password', with: user.password
   fill_in 'Password confirmation', with: user.password_confirmation
-  click_on 'Register'
+  click_button 'Register'
 end
 
 def login(user)
@@ -13,5 +13,5 @@ def login(user)
   click_on 'Login'
   fill_in 'Email', with: user.email
   fill_in 'Password', with: user.password
-  click_on 'Login'
+  click_button 'Login'
 end

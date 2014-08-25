@@ -2,21 +2,34 @@
 <html>
 <head>
   <title>HerbalNotebook</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <nav>
   <% if current_user %>
-    <%= link_to 'Logout', session_path(current_user), method: :delete %>
+    <div class="logo">
+      <%= link_to 'Herbal Notebook', user_path(current_user) %>
+    </div>
+    <div class="session_nav">
+      <%= link_to 'Logout', session_path(current_user), method: :delete %>
+    </div>
+  <% else %>
+    <div class="logo">
+      <%= link_to 'Herbal Notebook', root_path %>
+    </div>
+    <div class="session_nav">
+      <%= link_to 'Register', new_user_path %>
+      <%= link_to 'Login', new_session_path %>
+    </div>
   <% end %>
 </nav>
 
 <% if flash.any? %>
-    <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: name %>
-    <% end %>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+  <% end %>
 <% end %>
 
 <%= yield %>

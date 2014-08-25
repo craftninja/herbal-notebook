@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica);
+
+$darkergreen: #10591C;
+$darkgreen: #12661E;
+$lightgreen: #B2FFC2;
+$lightergreen: #D1FFDC;
+$golden: #DCC637;
+
+nav {
+  background: $darkgreen;
+  color: $lightgreen;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: 'IM Fell DW Pica', serif;
+  a {
+    color: $lightgreen;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $lightergreen;
+  }
+  .logo {
+    font-size: 3em;
+    padding: .2em .25em 0em .25em;
+  }
+  .session_nav {
+    display: inline-flex;
+    font-size: 1.5em;
+    a {
+      padding: 1em;
+    }
+    a:hover {
+      background: $darkergreen;
+    }
+  }
+}
