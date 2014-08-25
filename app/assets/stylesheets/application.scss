@@ -20,6 +20,7 @@ $darkgreen: #12661E;
 $lightgreen: #B2FFC2;
 $lightergreen: #D1FFDC;
 $golden: #DCC637;
+$darkgolden: #DCB00D;
 
 nav {
   background: $darkgreen;
@@ -33,7 +34,7 @@ nav {
     text-decoration: none;
   }
   a:hover {
-    color: $lightergreen;
+    color: $golden;
   }
   .logo {
     font-size: 3em;
@@ -48,5 +49,49 @@ nav {
     a:hover {
       background: $darkergreen;
     }
+  }
+}
+.nav_underscore {
+  height: 3px;
+  background: $golden;
+}
+.notice {
+  color: $darkgreen;
+  background: $lightergreen;
+}
+.error {
+  color: maroon;
+}
+.field_with_errors {
+  display: inline;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.signin-form {
+  width: 26em;
+  border: 1px solid $darkgreen;
+  padding: 2em;
+  margin: 2em auto;
+  background: $lightergreen;
+
+  div {
+    padding: .3em 0;
+  }
+
+  label {
+    display: inline-block;
+    width: 11em;
+  }
+
+  input[type=submit] {
+    margin-left: 11.3em;
+    background: $golden;
+    border: 2px solid $darkgolden;
   }
 }
