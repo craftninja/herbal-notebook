@@ -25,25 +25,21 @@ feature 'User Auth' do
   scenario 'User can login' do
     register(user)
     click_on 'Logout'
-    click_on 'Login'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_on 'Login'
+    login(user)
     expect(page).to have_content('Welcome, User!')
     expect(page).to have_content('Your login was successful!')
   end
 
-  scenario 'User sees errors on registration and login' do
+  scenario 'User sees errors on registration' do
     user.username = ''
     register(user)
     expect(page).to have_content('Username can\'t be blank')
-    user.username = 'User'
+  end
+
+  scenario 'User sees errors on login' do
     register(user)
-    click_on 'Logout'
-    click_on 'Login'
-    fill_in 'Email', with: 'notuser@example.com'
-    fill_in 'Password', with: user.password
-    click_on 'Login'
+    user.email = 'notuser@example.com'
+    login(user)
     expect(page).to have_content('Email and/or Password is incorrect.')
   end
 
