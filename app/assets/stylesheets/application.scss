@@ -21,6 +21,7 @@ $lightgreen: #B2FFC2;
 $lightergreen: #D1FFDC;
 $golden: #DCC637;
 $darkgolden: #DCB00D;
+$darkearth: #33251F;
 
 nav {
   background: $darkgreen;
@@ -58,6 +59,7 @@ nav {
 
 body {
   font-family: 'IM Fell DW Pica', serif;
+  color: $darkearth;
 }
 .notice {
   color: $darkgreen;
