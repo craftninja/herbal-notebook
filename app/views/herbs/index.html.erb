@@ -1,0 +1,4 @@
+<%= form_for :plant, url: find_herb_path do |f| %>
+  <%= f.collection_select(:common_name, Plant.all, :id, :common_name, {:prompt => true}) %>
+  <%= f.submit 'Tell me about this herb' %>
+<% end %>

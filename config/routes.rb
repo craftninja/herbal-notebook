@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :herbs
+  post '/find_herb' => 'herbs#find_herb'
 
 end
