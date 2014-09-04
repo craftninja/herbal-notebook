@@ -24,7 +24,7 @@ feature 'Herb Dictionary' do
       within('.specific') do
         expect(page).to have_content('nervine')
       end
-      within('.actions') do
+      within('.properties') do
         expect(page).to have_content('galactagogue')
         expect(page).to have_content('anti-spasmodic')
         expect(page).to have_content('hepatic')
