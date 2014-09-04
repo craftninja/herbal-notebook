@@ -53,4 +53,21 @@ feature 'Herb Dictionary' do
     end
   end
 
+  scenario 'Herb\'s properties are linked to their definition which lists herbs with that property' do
+    create_vervain
+
+    visit '/'
+    click_on 'Care to browse our little herbal dictionary?'
+    select 'vervain', from: 'plant_common_name'
+    click_on 'Tell me about this herb'
+    click_on 'galactagogue'
+    expect(page).to have_content('Galactagogue')
+    expect(page).to have_content('Supports milk production.')
+    expect(page).to have_content('Vervain leaf')
+    click_on 'Vervain leaf'
+    within('.species') do
+      expect(page).to have_content('Verbena hastata')
+    end
+  end
+
 end

@@ -9,4 +9,10 @@ class Herb < ActiveRecord::Base
     HerbalProperty.where(:herb_id => self.id, :specific => true)
   end
 
+  def name
+    plant = Plant.find(self.plant_id)
+    part = Part.find(self.part)
+    "#{plant.common_name.capitalize} #{part.structure}"
+  end
+
 end
