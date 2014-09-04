@@ -34,7 +34,7 @@
     <div class="preparations">
       <h4>Preparations</h4>
       <% herb.preparations.each do |preparation| %>
-        <h5><%= preparation.name %></h5>
+        <h5><%=link_to preparation.name, preparation_path(preparation) %></h5>
       <% end %>
     </div>
     <div class="best_time_to_collect">

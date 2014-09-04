@@ -1,0 +1,12 @@
+<h1>Herbal Property: <%= @preparation.name.capitalize %></h1>
+<div class="preparation">
+  <h2><%= @preparation.recipe %></h2>
+</div>
+<div class="herbs">
+  <h2>Herbs that are great with this preparation:</h2>
+  <ul>
+    <% @preparation.herbs.each do |herb| %>
+      <li><%= link_to herb.name, herb_path(herb.plant_id) %></li>
+    <% end %>
+  </ul>
+</div>

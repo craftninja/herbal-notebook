@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :herbs, :only => [:index, :show]
   resources :properties, :only => [:show]
   post '/find_herb' => 'herbs#find_herb'
+  resources :preparations, :only => [:show]
 
 end
