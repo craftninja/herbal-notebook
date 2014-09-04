@@ -1,4 +1,4 @@
-<h1>Plant Name: <%= @plant.common_name %></h1>
+<h1>Plant Name: <%= @plant.common_name.capitalize %></h1>
 <div class="species">
   <h2>Species</h2>
   <% @plant.species.each do |binomial| %>
@@ -7,8 +7,12 @@
 </div>
 <div class="contraindications">
   <h2>Contraindications</h2>
-  <% @plant.contraindications.each do |contraindication| %>
-    <h3><%= contraindication %></h3>
+  <% if @plant.contraindications.any? %>
+    <% @plant.contraindications.each do |contraindication| %>
+      <h3><%= contraindication %></h3>
+    <% end %>
+  <% else %>
+    <h3>No major known contraindications, but always ask your body!</h3>
   <% end %>
 </div>
 <div class="parts">

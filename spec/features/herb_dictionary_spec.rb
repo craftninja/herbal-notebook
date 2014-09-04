@@ -38,4 +38,19 @@ feature 'Herb Dictionary' do
     end
   end
 
+  scenario 'Herb without contraindications has default message' do
+    create_blackberry
+
+    visit '/'
+    expect(page).to have_content('Welcome to the Herbal Notebook, kind stranger!')
+    click_on 'Care to browse our little herbal dictionary?'
+    select 'blackberry', from: 'plant_common_name'
+    click_on 'Tell me about this herb'
+    expect(page).to have_content('Blackberry')
+
+    within('.contraindications') do
+      expect(page).to have_content('No major known contraindications, but always ask your body!')
+    end
+  end
+
 end
