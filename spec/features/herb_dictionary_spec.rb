@@ -11,6 +11,10 @@ feature 'Herb Dictionary' do
     select 'vervain', from: 'plant_common_name'
     click_on 'Tell me about this herb'
     expect(page).to have_content('Vervain')
+    within('.illustration') do
+      expect(page).to have_selector('img')
+    end
+
     within('.species') do
       expect(page).to have_content('Verbena hastata')
     end

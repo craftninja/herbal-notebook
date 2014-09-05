@@ -1,4 +1,9 @@
 <h1>Plant Name: <%= @plant.common_name.capitalize %></h1>
+<div class="plant-box">
+<div class="illustration">
+  <%= image_tag "herb_illustrations/#{@plant.common_name}.jpg" %>
+</div>
+<div class="plant-data">
 <div class="species">
   <h2>Species</h2>
   <% @plant.species.each do |binomial| %>
@@ -42,4 +47,6 @@
       <h5><%= herb.time_to_collect %></h5>
     </div>
   <% end %>
+</div>
+</div>
 </div>
