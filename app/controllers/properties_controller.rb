@@ -5,7 +5,11 @@ class PropertiesController < ApplicationController
   end
 
   def find_property
-    redirect_to property_path(params[:property][:name])
+    if params[:property][:name] != ''
+      redirect_to property_path(params[:property][:name])
+    else
+      redirect_to herbs_path
+    end
   end
 
 end

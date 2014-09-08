@@ -5,7 +5,11 @@ class PreparationsController < ApplicationController
   end
 
   def find_preparation
-    redirect_to preparation_path(params[:preparation][:name])
+    if params[:preparation][:name] != ''
+      redirect_to preparation_path(params[:preparation][:name])
+    else
+      redirect_to herbs_path
+    end
   end
 
 end

@@ -123,4 +123,13 @@ feature 'Herb Dictionary' do
     end
   end
 
+  scenario 'Selecting Please Select just reloads page, doesn\'t blow up' do
+    visit '/'
+    click_on 'Care to browse our little herbal dictionary?'
+    click_on 'Tell me about this herb'
+    click_on 'Tell me about this preparation'
+    click_on 'Tell me about this property'
+    expect(page).to have_content('Please select')
+  end
+
 end

@@ -5,7 +5,11 @@ class HerbsController <ApplicationController
   end
 
   def find_herb
-    redirect_to herb_path(params[:plant][:common_name])
+    if params[:plant][:common_name] != ''
+      redirect_to herb_path(params[:plant][:common_name])
+    else
+      redirect_to herbs_path
+    end
   end
 
   def show
