@@ -1,7 +1,7 @@
 <h1>Plant Name: <%= @plant.common_name.capitalize %></h1>
 <div class="plant-box">
   <div class="illustration">
-    <%= image_tag "herb_illustrations/#{@plant.common_name}.jpg" %>
+    <%= image_tag @plant.image %>
   </div>
   <div class="plant-data">
     <div class="species">
