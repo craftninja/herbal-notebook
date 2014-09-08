@@ -107,4 +107,20 @@ feature 'Herb Dictionary' do
     end
   end
 
+  scenario 'Herbal properties are viewable from herbal dictionary page' do
+    create_vervain
+
+    visit '/'
+    click_on 'Care to browse our little herbal dictionary?'
+    select 'nervine', from: 'property_name'
+    click_on 'Tell me about this property'
+    expect(page).to have_content('Nervine')
+    expect(page).to have_content('Supports the nervous system, soothes the nerves.')
+    expect(page).to have_content('Vervain leaf')
+    click_on 'Vervain leaf'
+    within('.species') do
+      expect(page).to have_content('Verbena hastata')
+    end
+  end
+
 end

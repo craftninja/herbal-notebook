@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   post '/find_herb' => 'herbs#find_herb'
   resources :preparations, :only => [:show]
   post '/find_preparation' => 'preparations#find_preparation'
+  post '/find_property' => 'properties#find_property'
 
 end

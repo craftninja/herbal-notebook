@@ -6,3 +6,7 @@
   <%= f.collection_select(:name, Preparation.all, :id, :name, {:prompt => true}) %>
   <%= f.submit 'Tell me about this preparation' %>
 <% end %>
+<%= form_for :property, url: find_property_path do |f| %>
+  <%= f.collection_select(:name, Property.all, :id, :name, {:prompt => true}) %>
+  <%= f.submit 'Tell me about this property' %>
+<% end %>
