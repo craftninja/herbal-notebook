@@ -91,4 +91,20 @@ feature 'Herb Dictionary' do
     end
   end
 
+  scenario 'Herbal preparations are viewable from herbal dictionary page' do
+    create_vervain
+
+    visit '/'
+    click_on 'Care to browse our little herbal dictionary?'
+    select 'tincture', from: 'preparation_name'
+    click_on 'Tell me about this preparation'
+    expect(page).to have_content('Tincture')
+    expect(page).to have_content('Tinctures are surprisingly easy to prepare, but do take a bit of time.')
+    expect(page).to have_content('Vervain leaf')
+    click_on 'Vervain leaf'
+    within('.species') do
+      expect(page).to have_content('Verbena hastata')
+    end
+  end
+
 end

@@ -2,3 +2,7 @@
   <%= f.collection_select(:common_name, Plant.all, :id, :common_name, {:prompt => true}) %>
   <%= f.submit 'Tell me about this herb' %>
 <% end %>
+<%= form_for :preparation, url: find_preparation_path do |f| %>
+  <%= f.collection_select(:name, Preparation.all, :id, :name, {:prompt => true}) %>
+  <%= f.submit 'Tell me about this preparation' %>
+<% end %>
