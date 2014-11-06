@@ -4,7 +4,7 @@ feature 'User Auth' do
 
   let :user do
     User.new(
-        :username => 'User',
+        :username => 'Amber Corcoran',
         :email => 'user@example.com',
         :password => 'password',
         :password_confirmation => 'password')
@@ -12,7 +12,7 @@ feature 'User Auth' do
 
   scenario 'User can register' do
     register(user)
-    expect(page).to have_content('Welcome, User!')
+    expect(page).to have_content("Welcome, #{user.username}!")
     expect(page).to have_content('Your registration was successful!')
   end
 
@@ -26,7 +26,7 @@ feature 'User Auth' do
     register(user)
     click_on 'Logout'
     login(user)
-    expect(page).to have_content('Welcome, User!')
+    expect(page).to have_content("Welcome, #{user.username}!")
     expect(page).to have_content('Your login was successful!')
   end
 
